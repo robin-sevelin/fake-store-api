@@ -8,7 +8,7 @@ const ProductList = ({ productList }: { productList: Product[] }) => {
     <section className='flex flex-col'>
       {productList.map((product) => (
         <Suspense fallback={<p>..loading</p>} key={product.id}>
-          <Link key={product.id} href={'/' + product.id.toString()}>
+          <Link key={product.id} href={'/products/' + product.id.toString()}>
             <Image
               src={product.image}
               alt={product.title}

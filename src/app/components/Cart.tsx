@@ -3,8 +3,16 @@
 import React, { useContext } from 'react';
 import { actionType, CartContext } from '../lib/store/contexts/cartContext';
 
-const Cart = () => {
+interface Props {
+  setShowCart: () => void;
+}
+
+const Cart = ({ setShowCart }: Props) => {
   const { cart, dispatch } = useContext(CartContext);
+
+  const handleClick = () => {
+    setShowCart();
+  };
 
   return (
     <div className='bg-red-500 h-full absolute z-10 justify-start'>
@@ -38,6 +46,7 @@ const Cart = () => {
           Clear cart
         </button>
       )}
+      <button onClick={handleClick}>Close cart</button>
     </div>
   );
 };

@@ -1,8 +1,9 @@
 import { Suspense } from 'react';
-import ProductView from '../components/ProductView';
-import { Product } from '../lib/types/product';
+
 import Link from 'next/link';
-import { API_URL } from '../lib/constants/constants';
+import ProductView from '@/app/components/ProductView';
+import { API_URL } from '@/app/lib/constants/constants';
+import { Product } from '@/app/lib/types/product';
 
 const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
@@ -15,7 +16,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
       <Suspense fallback={<p>..loading product</p>}>
         <ProductView product={product} />
       </Suspense>
-      <Link href={'/'}>Back</Link>
+      <Link href={'/products'}>Back</Link>
     </section>
   );
 };
